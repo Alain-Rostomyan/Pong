@@ -2,11 +2,11 @@ import turtle
 import random
 
 # Set up a window
-window = turtle.Screen()
-window.title("Pong -- Alain, Millan, Alienor, Toscane")
-window.bgcolor("black")
-window.setup(width=800, height=400)
-window.tracer(0) #Turn on manual updates of the screen -> Makes the game quicker
+screen = turtle.Screen()
+screen.title("Pong -- Alain, Millan, Alienor, Toscane")
+screen.bgcolor("black")
+screen.setup(width=600, height=400)
+screen.tracer(0) #Turn on manual updates of the screen -> Makes the game quicker
 ### Could we make it bigger ?
 
 # Create the title and choose mode texts
@@ -42,10 +42,10 @@ ai_text.write("AI Mode", align="center", font=("Courier", 18, "normal"))
 
 def setup_2_players():
     # Set up the window
-    window = turtle.Screen()
-    window.title("Pong-- Alain, Millan, Alienor, Toscane")
-    window.bgcolor("black")
-    window.setup(width=600, height=400)
+    screen = turtle.Screen()
+    screen.title("Pong-- Alain, Millan, Alienor, Toscane")
+    screen.bgcolor("black")
+    screen.setup(width=600, height=400)
     ###again, bigger ?
 
     # Create paddles and ball
@@ -122,18 +122,18 @@ def setup_2_players():
             player2_paddle.sety(y - 25)
 
     # Keyboard input for controls
-    window.listen()
+    screen.listen()
 
     # Player 1 controls
-    window.onkeypress(move_paddle1_up, "w")
-    window.onkeypress(move_paddle1_down, "s")
+    screen.onkeypress(move_paddle1_up, "w")
+    screen.onkeypress(move_paddle1_down, "s")
 
     # Player 2 controls
-    window.onkeypress(move_paddle2_up, "Up")
-    window.onkeypress(move_paddle2_down, "Down")
+    screen.onkeypress(move_paddle2_up, "Up")
+    screen.onkeypress(move_paddle2_down, "Down")
 
     # Set animation speed and turn on manual screen updates -> makes game quicker
-    window.tracer(0)
+    screen.tracer(0)
     turtle.speed(0)
 
     # Main game loop
@@ -344,7 +344,7 @@ def setup_1_player():
 # Function to handle clicks on the screen
 def on_click(x, y):
     if -70 < x < 70 and -15 < y < 5:  # Click within the "Two Player" text bounding box
-        # Clear landing page
+        # Clear window
         welcome_text.clear()
         mode_text.clear()
         two_player_text.clear()
