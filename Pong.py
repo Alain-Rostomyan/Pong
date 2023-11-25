@@ -125,8 +125,8 @@ def setup_2_players():
     screen.listen()
 
     # Player 1 controls
-    screen.onkeypress(move_paddle1_up, "w")
-    screen.onkeypress(move_paddle1_down, "s")
+    screen.onkeypress(move_paddle1_up, "s")
+    screen.onkeypress(move_paddle1_down, "w")
 
     # Player 2 controls
     screen.onkeypress(move_paddle2_up, "Up")
@@ -157,9 +157,14 @@ def setup_2_players():
         ball.sety(ball.ycor() + ball_speed_y)
 
         # Ball collision with upper and lower walls
-        if ball.ycor() > 190 or ball.ycor() < -190:
-            ball_speed_y *= -1
-            ### Question: when i run the code on my computer i have to add a few lines here, or else the ball glitches with the walls, but it works well on github. Do I add my lines or are they unecessary ?
+        if ball.ycor()>190:
+            ball.sety(190)
+            ball_yspeed *= -1
+
+        if ball.ycor()<-190:
+            ball.sety(-190)
+            ball_yspeed *= -1
+        
 
         # Ball collision with paddles
         if (
