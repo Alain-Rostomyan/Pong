@@ -177,19 +177,19 @@ def setup_2_players():
             ball_speed_x *= -1
 
         # Check for scoring
-        # Player 1 scores
         if ball.xcor() > 290:
+            # Player 1 scores
             score_player1 += 1
             ball.goto(0, 0)
             ball_speed_x *= -1
-            ball_speed_y = random.choice([-1, 1])  # Randomize the y-direction
+            ball_speed_y = random.uniform(-1, 1)  # Randomize the y-direction
 
-        # Player 2 scores
-        if ball.xcor() < -290:
+        elif ball.xcor() < -290:
+            # Player 2 scores
             score_player2 += 1
             ball.goto(0, 0)
             ball_speed_x *= -1
-            ball_speed_y = random.choice([-1, 1])  # Randomize the y-direction
+            ball_speed_y = random.uniform(-1, 1)  # Randomize the y-direction
 
         # Update the score display
         score_display.clear()
@@ -324,12 +324,14 @@ def setup_1_player():
             score_player1 += 1
             ball.goto(0, 0)
             ball_speed_x *= -1
+            ball_speed_y = random.uniform(-1, 1)  # Randomize the y-direction
 
         elif ball.xcor() < -290:
             # Player 2 scores
             score_player2 += 1
             ball.goto(0, 0)
             ball_speed_x *= -1
+            ball_speed_y = random.uniform(-1, 1)  # Randomize the y-direction
 
         # Update the score display
         score_display.clear()
